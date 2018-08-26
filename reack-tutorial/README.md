@@ -1,5 +1,5 @@
 # React Tutorial
-* https://reactjs.org/tutorial/tutorial.html
+* This is refer to [Official: tutorial](https://reactjs.org/tutorial/tutorial.html)
 
 
 ## Setup Development Environment (Using yarn)
