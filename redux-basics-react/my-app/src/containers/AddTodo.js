@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
+
+// プレゼンテーションとコンテナのロジックを混合に書いてもよい
+
 const AddTodo = ({ dispatch }) => {
   let input
 
