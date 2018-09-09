@@ -6,5 +6,5 @@
 * Install redux, react-redux
 
 ```
-yarn add redux react-redux redux-logger redux-thunk babel-polyfill cross-fetch
+yarn add react-router redux react-redux redux-logger redux-thunk babel-polyfill cross-fetch
 ```
