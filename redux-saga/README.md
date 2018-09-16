@@ -1,6 +1,12 @@
-# redux saga
+# redux-saga
 
 
+## Setup Development Environment
 ```
-yarn add react-router-dom redux-saga redux-act react-router-redux redux react-redux redux-logger redux-thunk babel-polyfill cross-fetch
+yarn install
+yarn start
 ```
+
+
+## References
+* [Official: Beginner Tutorial](https://redux-saga.js.org/docs/introduction/BeginnerTutorial.html)

@@ -1,4 +1,4 @@
-# redux-advanced
+# webpack
 
 
 ## Setup Development Environment
@@ -9,4 +9,4 @@ yarn start
 
 
 ## References
-* [Official: advanced](https://redux.js.org/advanced)
+* [Official](https://webpack.js.org/)

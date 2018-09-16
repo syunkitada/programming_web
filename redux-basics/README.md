@@ -1,10 +1,13 @@
 # Redux Basics
-* This is refer to [Official: basics](https://redux.js.org/basics)
 
 
-## Setup Development Environment (Using yarn)
-* Install redux, react-redux
-
+## Setup Development Environment
 ```
-yarn add redux react-redux
+yarn install
+yarn start
 ```
+
+
+## References
+* [Official: coreconcepts](https://redux.js.org/introduction/coreconcepts)
+* [Official: basics](https://redux.js.org/basics)

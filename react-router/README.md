@@ -1,6 +1,13 @@
-# react redux auth
+# react-router
 
 
+## Setup Development Environment
 ```
-yarn add react-router-dom redux-saga redux-act react-router-redux redux react-redux redux-logger redux-thunk babel-polyfill cross-fetch
+yarn install
+yarn start
 ```
+
+
+## References
+* [Official: bisic-components](https://reacttraining.com/react-router/web/guides/basic-components)
+* [Official: basic-example](https://reacttraining.com/react-router/web/example/basic)
