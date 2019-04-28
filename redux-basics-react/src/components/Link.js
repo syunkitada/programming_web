@@ -2,17 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const Link = ({active, children, onClick}) => (
-  <button
-    onClick={onClick}
-    disable={active.toString()}
-    style={{
-      marginLeft: '4px',
-    }}
-  >
-    {children}
-  </button>
-)
+const Link = ({active, children, onClick}) => {
+  console.log("Called components.Link", active, children, onClick)
+  return (
+    <button
+      onClick={onClick}
+      disable={active.toString()}
+      style={{
+        marginLeft: '4px',
+      }}
+    >
+      {children}
+    </button>
+  )
+}
 
 
 Link.propTypes = {

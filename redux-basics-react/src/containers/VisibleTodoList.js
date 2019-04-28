@@ -18,10 +18,13 @@ const getVisibleTodos = (todos, filter) => {
 
 // mapStateToPropsはconnectのために必要
 // 現在のRedux Storeの状態を、どのようにPropsへ変換するかを示す
-// このPropsは、コンテナがラップしているプレゼンテーショナルコンポーネントに渡される
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
+// Stateが変更されたときに呼ばれ、このPropsは、コンテナがラップしているプレゼンテーションコンポーネントに渡される
+function mapStateToProps(state) {
+  console.log("called mapStateToProps", state)
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }
+}
 
 // mapDispatchToPropsはconnectのために必要
 // Actionのdispatch

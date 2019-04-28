@@ -7,6 +7,7 @@ import { addTodo } from '../actions'
 
 const AddTodo = ({ dispatch }) => {
   let input
+  console.log("called AddTodo")
 
   return (
     <div>

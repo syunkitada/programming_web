@@ -26,6 +26,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MailIcon from '@material-ui/icons/Mail';
+import MUIDataTable from "mui-datatables";
 
 const drawerWidth = 240;
 
@@ -147,6 +148,19 @@ const styles = theme => ({
     },
   },
 });
+
+const columns = ["Name", "Company", "City", "State"];
+
+const data = [
+ ["Joe James", "Test Corp", "Yonkers", "NY"],
+ ["John Walsh", "Test Corp", "Hartford", "CT"],
+ ["Bob Herm", "Test Corp", "Tampa", "FL"],
+ ["James Houston", "Test Corp", "Dallas", "TX"],
+];
+
+const options = {
+  filterType: 'checkbox',
+};
 
 class Dashboard extends React.Component {
   state = {
@@ -332,6 +346,12 @@ class Dashboard extends React.Component {
             <div className={classes.tableContainer}>
               <SimpleTable />
             </div>
+            <MUIDataTable
+              title={"Employee List"}
+              data={data}
+              columns={columns}
+              options={options}
+            />
           </main>
         </div>
       </React.Fragment>
