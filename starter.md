@@ -1,30 +1,32 @@
 # Starter
 
-
 ## Usage Links
-* [yarn](https://yarnpkg.com/en/docs/usage)
 
+- [yarn](https://yarnpkg.com/en/docs/usage)
 
 ## Init Scripts
-* node、yarnのインストール
+
+- node、yarn のインストール
+
 ```
-wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
+wget https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.xz
 sudo mkdir -p /usr/local/node
-sudo tar -C /usr/local/node --strip-components 1 -xf node-v8.11.3-linux-x64.tar.xz
-rm -rf node-v8.11.3-linux-x64.tar.xz
+sudo tar -C /usr/local/node --strip-components 1 -xf node-v12.14.0-linux-x64.tar.xz
+rm -rf node-v*-linux-x64.tar.xz
 sudo ln -s /usr/local/node/bin/node /usr/local/bin/node
 sudo ln -s /usr/local/node/bin/npm /usr/local/bin/npm
 sudo ln -s /usr/local/node/bin/npx /usr/local/bin/npx
 sudo npm install -g yarn
 ```
 
-* 基本ツールのインストール
-```
-sudo yarn global add create-react-app
-```
+- 基本ツールのインストール
 
+```
+yarn global add create-react-app
+```
 
 ## Start Project
+
 ```
 create-react-app my-app
 cd my-app
@@ -32,7 +34,6 @@ cd my-app
 # Start DevServer
 yarn start
 ```
-
 
 ## Gitignore
 
