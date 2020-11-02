@@ -7,6 +7,15 @@ $ cd helloworld-app
 $ yarn add @types/jquery
 ```
 
+## Note
+
+- System limit for number of file watchers reached というメッセージが出てたら、上限を上げる必要がある
+
+```
+$ echo 'fs.inotify.max_user_watches=65536' | sudo tee /etc/sysctl.d/50-web-samples.conf
+$ sudo sysctl -p
+```
+
 ## UI Library
 
 ### Bootstrap 4
