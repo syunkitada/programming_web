@@ -2,8 +2,8 @@ function Render(input: any) {
   const { id, onSubmit } = input;
   $(`#${id}`).html(`
 <div class="container" style="margin-top: 100px; max-width: 500px;">
-  <form class="form-signin" id="login-Login-form">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <form class="form-login" id="login-Login-form">
+    <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
     <label for="inputUserName" class="sr-only">User Name</label>
     <input type="text" id="login-Login-userName" class="form-control" placeholder="User Name" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
@@ -13,7 +13,7 @@ function Render(input: any) {
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button id="login-Login-submit-button" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button id="login-Login-submit-button" class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
   </form>
 </div>
   `);
@@ -21,7 +21,7 @@ function Render(input: any) {
   function onError(input: any) {
     console.log("onError", input);
     $("#login-Login-submit-button").html(`
-    <button id="login-Login-submit-button" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button id="login-Login-submit-button" class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
     `);
   }
 

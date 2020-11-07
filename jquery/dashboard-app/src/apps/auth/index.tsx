@@ -6,7 +6,7 @@ import data from "../../data";
 function loginWithToken() {
   Loading.Render({ id: "root" });
   sleep({
-    ms: 500,
+    ms: 1000,
     callback: function () {
       console.log("loginWithToken");
 
@@ -39,18 +39,51 @@ function sleep(input: any) {
 
 function login(input: any) {
   sleep({
-    ms: 500,
+    ms: 1000,
     callback: function () {
       console.log("debug callback");
       // input.onError();
       // return;
       const ls = window.localStorage;
       const auth = {
-        user: input.userName,
+        Authority: {
+          Name: input.userName,
+          ServiceMap: {
+            TableService: {},
+            GraphService: {},
+          },
+          ProjectServiceMap: {
+            project1: {
+              Service1: {},
+              Service2: {},
+            },
+            project2: {
+              Service1: {},
+              Service2: {},
+            },
+          },
+        },
       };
       ls.setItem("token", JSON.stringify(auth));
       data.auth = auth;
       service.init();
+    },
+  });
+}
+
+function logout() {
+  Loading.Render({ id: "root" });
+  sleep({
+    ms: 1000,
+    callback: function () {
+      const ls = window.localStorage;
+      ls.removeItem("token");
+      Login.Render({
+        id: "root",
+        onSubmit: function (input: any) {
+          login(input);
+        },
+      });
     },
   });
 }
@@ -61,5 +94,6 @@ function init() {
 
 const index = {
   init,
+  logout,
 };
 export default index;

@@ -1,122 +1,139 @@
+import data from "../../data";
+
 function Render(input: any) {
+  const { Name, ServiceMap, ProjectServiceMap } = data.auth.Authority;
+
+  const tmpProjects = Object.keys(ProjectServiceMap);
+  tmpProjects.sort();
+
+  const tmpServices = Object.keys(ServiceMap);
+  tmpServices.sort();
+
+  const projectsHtmls = [];
+  for (const tmpProject of tmpProjects) {
+    projectsHtmls.push(`
+        <a class="list-group-item list-group-item-action" href="#">${tmpProject}</a>
+        `);
+  }
+
+  const projectHtml = `
+    <li class="list-group-item list-group-item-action sidebar-item">
+      <a class="list-group-item-action" data-toggle="collapse" href="#collapseExample">
+        Projects
+        <i id="collapseExampleIcon" class="material-icons">chevron_right</i>
+      </a>
+      <div class="collapse list-group list-group-flush" id="collapseExample" style="padding: 5px;">
+        <input id="input-project" class="form-control form-control-sm">
+        ${projectsHtmls.join("")}
+      </div>
+    </li>
+    `;
+
+  const servicesHtmls = [projectHtml];
+
+  for (const tmpService of tmpServices) {
+    servicesHtmls.push(`
+    <li class="list-group-item list-group-item-action sidebar-item">
+      <a class="list-group-item-action" href="#">${tmpService}</a>
+    </li>
+    `);
+  }
+
   const { id } = input;
   $(`#${id}`).html(`
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light border-bottom sticky-top bg-white" style="height: 50px; padding: 0px;">
+  <a id="menu-toggle" class="border-right" href="#">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-  <ul class="navbar-nav px-3">
-  <li class="nav-item text-nowrap">
-  <a class="nav-link" href="#">Sign out</a>
-  </li>
-  </ul>
+  </a>
+
+  <a id="navbar-brand" class="navbar-brand border-right mr-auto" href="#">Home</a>
+
+  <div class="dropdown col-auto bg-lignt border-left">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      ${Name}
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" id="DashboardLogout" href="#">Log out</a>
+    </div>
+  </div>
 </nav>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#collapseExample">
-              <span data-feather="home"></span>
-              Projects
-            </a>
-            <div class="collapse" id="collapseExample">
-              projects
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Orders
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
-        </div>
-      </div>
-
-      <div id="chart_div"></div>
-
-      <h2>Section title</h2>
-    </main>
-  </div>
+<!-- Sidebar -->
+<div class="border-right bg-white" id="sidebar-wrapper">
+  <ul class="list-group list-group-flush" style="width: 100%;">
+    ${servicesHtmls.join("")}
+  </ul>
 </div>
+<!-- /#sidebar-wrapper -->
+
+<div class="bg-white" id="wrapper">
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <div class="container-fluid">
+        <h1 class="mt-4">Sample Page</h1>
+        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+
+
   `);
+
+  $("#menu-toggle").on("click", function (e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("toggled");
+  });
+
+  $("#header-menu-toggle").on("click", function (e) {
+    e.preventDefault();
+    $("#header-menu").toggleClass("toggled");
+  });
+
+  $("#collapseExample")
+    .on("show.bs.collapse", function () {
+      $("#collapseExampleIcon").toggleClass("rotate-90");
+    })
+    .on("shown.bs.collapse", function () {
+      $("#input-project").focus();
+    })
+    .on("hide.bs.collapse", function () {
+      $("#collapseExampleIcon").toggleClass("rotate-90");
+    });
+
+  $("#DashboardLogout").on("click", function () {
+    input.logout();
+  });
 
   return;
 }

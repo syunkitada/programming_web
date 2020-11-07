@@ -5,6 +5,7 @@ $ yarn create react-app helloworld-app --template typescript
 $ cd helloworld-app
 
 $ yarn add @types/jquery
+$ yarn add @types/bootstrap@4.0
 ```
 
 ## Note
