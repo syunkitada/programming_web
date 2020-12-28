@@ -1,0 +1,3 @@
+[submodule "module/npm-helloworld"]
+	path = module/npm-helloworld
+	url = git@github.com:syunkitada/npm-helloworld.git
