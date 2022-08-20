@@ -1,0 +1,29 @@
+{
+    "name": "",
+    "version": "0.0.1",
+    "description": "",
+    "author": "",
+    "license": "MIT",
+    "keywords": [],
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test-watch": "jest --watch",
+        "build": "webpack --mode=production",
+        "start": "webpack serve"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/jest": "latest",
+        "jest": "latest",
+        "ts-jest": "latest",
+        "webpack": "latest",
+        "webpack-cli": "latest",
+        "webpack-dev-server": "latest",
+        "css-loader": "latest",
+        "style-loader": "latest",
+        "ts-loader": "latest",
+        "typescript": "latest"
+    }
+}

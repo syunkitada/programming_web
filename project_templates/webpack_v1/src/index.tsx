@@ -1,4 +1,4 @@
 import "./index.css";
 import { hello } from "./sub";
 
-hello();
+document.getElementById("msg").innerHTML = hello()
