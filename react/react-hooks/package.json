@@ -1,0 +1,34 @@
+{
+    "name": "",
+    "version": "0.0.1",
+    "description": "",
+    "author": "",
+    "license": "MIT",
+    "keywords": [],
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test-watch": "jest --watch",
+        "build": "webpack --mode=production",
+        "start": "webpack serve"
+    },
+    "dependencies": {
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "react": "latest",
+        "react-dom": "latest"
+    },
+    "devDependencies": {
+        "@types/jest": "latest",
+        "css-loader": "latest",
+        "jest": "latest",
+        "style-loader": "latest",
+        "ts-jest": "latest",
+        "ts-loader": "latest",
+        "typescript": "latest",
+        "webpack": "latest",
+        "webpack-cli": "latest",
+        "webpack-dev-server": "latest"
+    }
+}

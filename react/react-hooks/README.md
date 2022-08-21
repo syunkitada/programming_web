@@ -12,7 +12,7 @@
 
 ```
 # programming_web を ~/ に git cloneしてる前提です
-$ cp -r ~/programming_web/project_templates/webpack_v1 [path]
+$ cp -r ~/programming_web/project_template/webpack_v1 [path]
 $ cd [path]
 $ npm install
 
