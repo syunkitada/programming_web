@@ -153,6 +153,28 @@
   - レスポンシブデザイン: 他端末対応
   - Service Workers: オフライン対応、プッシュ通知
   - Web App Manifest: ホーム画面に追加
+- API の仕様書とコードの自動生成について
+  - OpenApi
+    - https://github.com/OAI/OpenAPI-Specification
+    - プログラミング言語に依存しない API の仕様書を定型化したもの
+    - OpenApi に準拠した仕様書を YAML, JSON で書いて、それを元にジェネレータでコードを自動生成して利用する
+    - コードから YAML、JSON に変換するパターンもある
+      - コードの規模が増えると単一 YAML からコード生成するよりも、コードから逆生成するパターンのほうが多い（気がする）
+  - GraphQL
+    - API のためのクエリ言語
+      - リクエストとレスポンスの書式が定められている
+      - クライアントが必要なリソースをグラフ構造で指定し、サーバはそれを返す
+    - 柔軟なクエリを構築できるが、複雑化しやすく、パフォーマンスやセキュリティ上の問題もでやすい（たぶん）
+    - 参考
+      - https://engineering.mercari.com/blog/entry/20220303-concerns-with-using-graphql/
+  - GRPC
+    - あくまで RPC ようのプロトコルで、システム内部通信でよく利用される
+    - 一般的な Rest API は json(テキスト)でデータを表現するが、GRPC は protobuf(バイナリ)
+      - プロトコルはどちらも HTTP だが、ペイロードのサイズは protobuf のが小さいし、パースも速い
+        - 5 - 10 倍くらいは早い？(json のデコードがコスト高そう)
+          - https://github.com/kubernetes/design-proposals-archive/blob/main/api-machinery/protobuf.md
+          - https://medium.com/analytics-vidhya/grpc-vs-rest-performance-comparison-1fe5fb14a01c
+    - API の仕様書をコードベースで書いて、それを元にジェネレータでコードを自動生成して利用する
 
 ## 参考
 
