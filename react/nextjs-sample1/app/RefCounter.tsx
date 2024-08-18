@@ -15,6 +15,13 @@ export function RefCounter() {
     refCount.current++;
   };
 
+  const buttonRef = React.useRef(null!);
+
+  const handleClick = () => {
+    const buttonElement = buttonRef.current;
+    console.log(buttonElement);
+  };
+
   return (
     <div>
       <div>State Counter</div>
@@ -26,6 +33,12 @@ export function RefCounter() {
       <div>
         <span>{refCount.current}</span>
         <button onClick={handleClickRefCount}>+</button>
+      </div>
+      <div>Counter</div>
+      <div>
+        <button ref={buttonRef} onClick={handleClick}>
+          handleClick
+        </button>
       </div>
     </div>
   );
