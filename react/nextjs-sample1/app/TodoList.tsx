@@ -1,5 +1,6 @@
 import React from "react";
 import { TodoItem, TodoItemType } from "./TodoItem";
+import { TodoForm } from "./TodoForm";
 
 export function TodoList() {
   const [todoList, setTodoList] = React.useState([
@@ -7,29 +8,16 @@ export function TodoList() {
     { id: 1, task: "task2", completed: true },
   ]);
 
-  const [text, setText] = React.useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (text != "") {
-      console.log("DEBUG submit");
-      setTodoList(
-        todoList.concat([
-          {
-            id: todoList.length - 1,
-            task: text,
-            completed: false,
-          },
-        ]),
-      );
-      setText("");
-    } else {
-      console.log("ignored");
-    }
-  };
-
-  const handleChange = (event) => {
-    setText(event.currentTarget.value);
+  const appendTodo = (text: string) => {
+    setTodoList(
+      todoList.concat([
+        {
+          id: todoList.length - 1,
+          task: text,
+          completed: false,
+        },
+      ]),
+    );
   };
 
   return (
@@ -40,9 +28,7 @@ export function TodoList() {
         ))}
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} value={text} />
-      </form>
+      <TodoForm appendTodo={appendTodo} />
     </>
   );
 }
