@@ -7,9 +7,7 @@ export type TodoFormType = {
 export function TodoForm(props: TodoFormType) {
   const [text, setText] = React.useState("");
 
-  const handleChange = (event) => {
-    setText(event.currentTarget.value);
-  };
+  const inputRef = React.useRef<HTMLInputElement>(null!);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -25,7 +23,7 @@ export function TodoForm(props: TodoFormType) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} value={text} />
+        <input type="text" ref={inputRef} defaultValue="" />
       </form>
     </>
   );

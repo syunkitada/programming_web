@@ -90,6 +90,21 @@ $ npm install react@latest react-dom@latest @types/react @types/react-dom
   - 各コンポーネントのProps/Stateを確認できる
   - 再レンダリングされたコンポーネントを可視化できる
     - レンダリングはなるべく最低限にしたほうがよい
+- Memorized = React.memo(Component, compare)
+  - 関数が返した結果をキャッシュして、同じ引数で呼び出された場合はキャッシュを返すことで関数の再実行を回避する
+  - 第一引数はメモ化する対象のコンポーネント
+  - 第二引数はPropsを比較する関数（任意）
+  - 戻り値はメモ化されたコンポーネント
+- cached = useMemo(calculate, deps)
+  - 任意の値をキャッシュするための組み込みHook
+    - 同一性のためではなく重い計算をキャッシュする用途でも使える
+  - 第一引数はキャッシュされる値を計算する関数
+  - 第二引数はキャッシュする値が依存する値の配列
+  - 戻り値はキャッシュされた値
+- cached = useCallback
+  - 第一引数はキャッシュ対象の関数
+  - 第二引数はキャッシュする関数が依存する値の配列
+  - 戻り値はキャッシュされた関数
 
 ## 参考・メモ
 
@@ -103,6 +118,7 @@ $ npm install react@latest react-dom@latest @types/react @types/react-dom
   - [React SPA の技術選定で考えたこと（atama plus のケーススタディ）](https://zenn.dev/atamaplus_dev/articles/30832dda37da52)
   - [ReactLocation: react-location vs react-router](https://react-location.tanstack.com/comparison)
 - [react-icons](https://react-icons.github.io/react-icons)
+- [Recruit: React 研修(2024)](https://speakerdeck.com/recruitengineers/react-yan-xiu-2024)
 - Next.jsと Nuxt.js
   - Reactをベースに開発されたJavaScriptフレームワークで、サーバ側の機能も組み込まれている（分離できない）
   - 基本的にサーバ機能とセットのモノなので、他のサーバアプリケーションと組み合せてCSRとして使うことができない（たぶん）
